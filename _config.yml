@@ -7,6 +7,7 @@ url: https://cloudcannon.com
 disqus_shortname: cloudcannon
 baseurl:
 
+active_sibling:
 main_url: https://cloudcannon.com
 google_site_verification: GkBrJRSQqF43wQVGLUeUJFTPBldtIXGCw9toqvS2o_o
 permalink: pretty

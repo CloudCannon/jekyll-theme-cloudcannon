@@ -1,7 +1,7 @@
 <nav class="siblings">
 	<div class="nav-bar wrapper wrapper-large">
 		{% for item in site.data.navigation.siblings %}
-			<a {% if page.url == item.link %}class="active"{% endif %} href="{{ item.link}}">{{ item.name }}</a>
+			<a {% if site.active_sibling == item.name %}class="active"{% endif %} href="{{ item.link}}">{{ item.name }}</a>
 		{% endfor %}
 	</div>
 </nav>
