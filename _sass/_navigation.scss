@@ -3,7 +3,7 @@ nav.siblings {
 	left: 0;
 	top: 0;
 	width: 100%;
-	background: rgba(0, 0, 0, 0.1);
+	overflow: hidden;
 
 	.wrapper {
 		justify-content: flex-end;
@@ -18,14 +18,60 @@ nav.siblings {
 		line-height: 30px;
 		color: rgba(255, 255, 255, 0.8);
 		font-weight: bold;
+		position: relative;
+		z-index: 10;
 
 		&:hover,
 		&:active
 		&.active:hover,
 		&.active:active,
 		&.active {
-			color: rgba(255, 255, 255, 1);
-			background: rgba(255, 255, 255, 0.3);
+			color: #fff;
+		}
+	}
+
+	a.active,
+	.no-active-replacement {
+		position: relative;
+		z-index: 9;
+
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			height: 100%;
+			left: 100%;
+			width: 9999px;
+			background: rgba(0, 0, 0, 0.1);
+			top: 0;
+		}
+
+		&:after {
+			right: 100%;
+			left: auto;
+		}
+	}
+
+	&.light {
+		background: $brand-color;
+
+		a.active,
+		.no-active-replacement {
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
+
+		a {
+			&:active
+			&.active:hover,
+			&.active:active,
+			&.active {
+				color: $brand-color;
+				background: #fff;
+			}
 		}
 	}
 

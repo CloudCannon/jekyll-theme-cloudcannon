@@ -7,14 +7,30 @@ icons: true
 	<div class="wrapper">
 		<p class="post-date">{{ page.date | date: "%d %b %Y" }}</p>
 		<h1>{{ page.title }}</h1>
+
+		{% assign author = site.data.authors[page.author] %}
+		{% assign show_details = false %}
+		{% if author %}
+			{% assign show_details = true %}
+		{% elsif page.categories %}
+			{% for category in page.categories %}
+				{% assign show_details = true %}
+				{% break %}
+			{% endfor %}
+		{% endif %}
+
+		{% if show_details %}
 		<div class="post-details">
-			{% assign author = site.data.authors[page.author] %}
-			<img src="{{ author.image }}" alt="A stunning photo of {{ author.name }}" width="200" height="200">
-			<span class="name">{{ author.name }}</span>
+			{% if author %}
+				<img src="{{ author.image }}" alt="A stunning photo of {{ author.name }}" width="200" height="200">
+				<span class="name">{{ author.name }}</span>
+			{% endif %}
 			{% for category in page.categories %}
 				<span class="category-separator">&bull;</span> <span class="category">{{ category }}</span>
 			{% endfor %}
 		</div>
+		{% endif %}
+
 		<div class="post-content">
 			{{ content }}
 
