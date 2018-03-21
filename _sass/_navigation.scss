@@ -3,7 +3,7 @@ nav.siblings {
 	left: 0;
 	top: 0;
 	width: 100%;
-	background: rbga(0,0,0,0.2);
+	background: rgba(0, 0, 0, 0.1);
 
 	.wrapper {
 		justify-content: flex-end;
@@ -13,15 +13,19 @@ nav.siblings {
 	a {
 		display: inline-block;
 		padding: 0 10px;
-		margin-left: 10px;
+		margin-left: 5px;
 		height: 30px;
 		line-height: 30px;
-		color: #fff;
-		border-radius: 0 0 2px 2px;
+		color: rgba(255, 255, 255, 0.8);
+		font-weight: bold;
 
-		&:hover {
-			background: #fff;
-			color: #364261;
+		&:hover,
+		&:active
+		&.active:hover,
+		&.active:active,
+		&.active {
+			color: rgba(255, 255, 255, 1);
+			background: rgba(255, 255, 255, 0.3);
 		}
 	}
 
