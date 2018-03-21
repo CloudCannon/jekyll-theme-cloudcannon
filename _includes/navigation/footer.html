@@ -1,0 +1,52 @@
+<footer>
+	<div class="wrapper wrapper-large">
+		<div class="footer-links">
+			<div class="about">
+				{% include navigation/logo.html %}
+				<p>Everything you need to build, host and update Jekyll websites.</p>
+			</div>
+			<ul>
+				<li><h4>CloudCannon</h4></li>
+				<li><a href="{{ site.main_url }}/features/">Features</a></li>
+				<li><a href="{{ site.main_url }}/pricing/">Pricing</a></li>
+				<li><a href="{{ site.main_url }}/blog/">Blog</a></li>
+				<li><a href="{{ site.main_url }}/about/">About</a></li>
+				<li><a href="{{ site.main_url }}/careers/">Careers</a></li>
+			</ul>
+			<ul>
+				<li><h4>Resources</h4></li>
+				<li><a href="https://learn.cloudcannon.com/">Guides</a></li>
+				<li><a href="https://docs.cloudcannon.com/">Documentation</a></li>
+				<li><a href="{{ site.main_url }}/experts/">Experts</a></li>
+				<li><a href="{{ site.main_url }}/contact/">Contact</a></li>
+				<li><a href="https://brand.cloudcannon.com/">Brand</a></li>
+			</ul>
+			<ul>
+				<li><h4>App</h4></li>
+				<li><a href="https://app.cloudcannon.com/users/sign_up/">Sign Up</a></li>
+				<li><a href="https://app.cloudcannon.com/">Log In</a></li>
+
+			</ul>
+			<ul class="contact">
+				<li><h4>Contact Us</h4></li>
+				<li><a href="mailto:support@cloudcannon.com">support@cloudcannon.com</a></li>
+				<li class="social">
+					<a class="twitter" href="https://twitter.com/CloudCannon">{% include svgs/social-icon.html icon="twitter" %}</a>
+					<a class="facebook" href="https://www.facebook.com/CloudCannon">{% include svgs/social-icon.html icon="facebook" %}</a>
+					<a class="google-plus" href="https://plus.google.com/+CloudCannon">{% include svgs/social-icon.html icon="google-plus" %}</a>
+					<a class="youtube" href="https://www.youtube.com/c/CloudCannon">{% include svgs/social-icon.html icon="youtube" %}</a>
+				</li>
+			</ul>
+
+			<div class="filler"></div>
+		</div>
+	</div>
+
+	<div class="legal-line">
+		<p class="wrapper wrapper-large">
+			&copy; {{ site.time | date: '%Y' }} CloudCannon Ltd &bull;
+			<a href="https://app.cloudcannon.com/terms">Terms</a> &amp;
+			<a href="https://app.cloudcannon.com/privacy_policy">Privacy</a>
+		</p>
+	</div>
+</footer>

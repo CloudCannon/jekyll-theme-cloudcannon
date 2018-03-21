@@ -1,1 +1,0 @@
-# cloudcannon-company-jekyll-theme

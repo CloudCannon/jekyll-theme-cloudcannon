@@ -1,0 +1,93 @@
+html {
+	font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 2.3rem;
+}
+
+h2 {
+	font-size: 1.8rem;
+}
+
+h3 {
+	font-size: 1.6rem;
+}
+
+h4 {
+	font-size: 1.4rem;
+}
+
+.big-text {
+	font-size: 1.6rem;
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+@media only screen and (min-width: $tablet-min) {
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	h2 {
+		font-size: 1.9rem;
+	}
+
+	.big-text {
+		font-size: 2rem;
+	}
+}
+
+@media only screen and (min-width: $desktop-min) {
+	h1 {
+		font-size: 2.7rem;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+
+	.big-text {
+		font-size: 2.3rem;
+	}
+}
+
+p,
+ul,
+ol {
+	font-size: $font-size-content;
+	line-height: 1.8em;
+}
+
+p,
+ul,
+ol,
+blockquote,
+figure,
+h1,
+h2,
+h3,
+h4 {
+	@extend .vertical-flow;
+}
+
+body,
+input,
+textarea,
+select {
+	font-family: "Muli", Helvetica, Arial, sans-serif;
+	color: $text-colour;
+	-webkit-font-smoothing: antialiased;
+	font-weight: 400;
+}
+
+code {
+	word-break: break-word;
+}

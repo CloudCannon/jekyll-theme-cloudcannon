@@ -1,0 +1,28 @@
+---
+layout: default
+icons: true
+header_class: short
+---
+
+<header class="{{ page.header_class }}">
+	{% include navigation/top.html %}
+
+	<section>
+		<div class="wrapper">
+			<h1>{{ page.heading }}</h1>
+			{% if page.subtitle %}
+				<p class="subtitle">{{ page.subtitle }}</p>
+			{% endif %}
+		</div>
+	</section>
+</header>
+
+<div class="dark-content">
+	<div class="wrapper">
+		{{ content }}
+	</div>
+</div>
+
+{% unless page.hide_cta %}
+{% include components/cta/main.html text="Join thousands of developers building sites on CloudCannon today" button="Get started free" %}
+{% endunless %}
