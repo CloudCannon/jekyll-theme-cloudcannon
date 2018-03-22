@@ -104,6 +104,10 @@ header.short {
 	a {
 		color: #fff;
 	}
+
+	.subtitle a:not(.button) {
+		text-decoration: underline;
+	}
 }
 
 header.plain  {

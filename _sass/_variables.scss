@@ -11,6 +11,17 @@ $form-icon-colour: #828a9b;
 $placeholder-colour: #b4b8c1;
 $plain-border-color: #e7e7e7;
 
+$white: #fff;
+$brand-color: #407afc;
+$brand-color-background: mix($brand-color, $white, 10%);
+
+$success-color: #39b75b;
+$success-color-light: mix($success-color, $white, 10%);
+$error-color: #e64f30;
+$error-color-light: mix($error-color, $white, 10%);
+$warning-color: #fca004;
+$warning-color-light: mix($warning-color, $white, 10%);
+
 // Sizes
 $break-small: 590px;
 $large-wrapper-width: 1200px;

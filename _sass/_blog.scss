@@ -46,63 +46,76 @@
 	list-style: none;
 	margin: 0;
 
-	li {
+	> li {
 		margin: 40px auto;
 		padding: 0;
 		max-width: $post-width;
+	}
 
-		.feature-image {
-			border-radius: $border-radius $border-radius 0 0;
-			overflow: hidden;
-			line-height: 0;
-			position: relative;
+	.badge {
+		font-size: 15px;
+		padding: 2px 5px;
+		background: #eee;
+		border-radius: 2px;
+		display: inline-block;
+
+		&.badge-major {
+			background: $brand-color;
+			color: #fff;
+		}
+	}
+
+	.feature-image {
+		border-radius: $border-radius $border-radius 0 0;
+		overflow: hidden;
+		line-height: 0;
+		position: relative;
+
+		a {
+			cursor: pointer;
+			display: block;
+			height: 100%;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		&.padded {
+			padding: 20px 20px 0 20px;
+			box-sizing: border-box;
+		}
+	}
+
+	.post-box {
+		padding: $mobile-card-padding;
+
+		@media only screen and (min-width: $tablet-min) {
+			padding: $card-padding - 2px $card-padding;
+		}
+	}
+
+	.post-summary p {
+		font-size: $font-small;
+	}
+
+	.title {
+		align-items: center;
+		display: flex;
+		flex-flow: column;
+
+		@media only screen and (min-width: $tablet-min) {
+			flex-flow: row;
+		}
+
+		h3 {
+			margin: 0;
+			flex: 1;
+			font-size: 1.6rem;
 
 			a {
-				cursor: pointer;
-				display: block;
-				height: 100%;
+				color: $text-colour;
 			}
-
-			img {
-				width: 100%;
-			}
-
-			&.padded {
-				padding: 20px 20px 0 20px;
-				box-sizing: border-box;
-			}
-		}
-
-		.post-box {
-			padding: $mobile-card-padding;
-
-			@media only screen and (min-width: $tablet-min) {
-				padding: $card-padding - 2px $card-padding;
-			}
-		}
-
-		.title {
-			align-items: center;
-			display: flex;
-			flex-flow: column;
-
-			@media only screen and (min-width: $tablet-min) {
-				flex-flow: row;
-			}
-
-			h3 {
-				margin: 0;
-				flex: 1;
-				font-size: 1.6rem;
-
-				a {
-					color: $text-colour;
-				}
-			}
-		}
-
-		.post-summary p {
-			font-size: $font-small;
 		}
 	}
 }

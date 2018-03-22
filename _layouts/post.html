@@ -39,8 +39,10 @@ icons: true
 	</div>
 </div>
 
+{% unless page.hide_disqus %}
 <div class="dark-content">
 	<div class="wrapper">
 		{% include disqus.html %}
 	</div>
 </div>
+{% endunless %}
