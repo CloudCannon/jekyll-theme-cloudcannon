@@ -1,6 +1,10 @@
+{% assign url = "https://app.cloudcannon.com/users/sign_up" %}
+{% if include.url %}
+	{% assign url = include.url %}
+{% endif %}
 <section class="cta">
 	<div class="wrapper">
 		<p class="big-text">{{ include.text }}</p>
-		<a href="https://app.cloudcannon.com/users/sign_up" class="button dark brand no-border shadow">{{ include.button }}</a>
+		<a href="{{ url }}" class="button dark brand no-border shadow">{{ include.button }}</a>
 	</div>
 </section>
