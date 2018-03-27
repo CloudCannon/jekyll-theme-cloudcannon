@@ -254,6 +254,8 @@
 
 @media only screen and (min-width: $overhang-min) {
 	.post-content {
+		.video_wrapper,
+		.video_wrapper + .resources,
 		.well,
 		img,
 		figure.highlight {

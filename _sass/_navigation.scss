@@ -6,6 +6,7 @@ nav.siblings {
 	overflow: hidden;
 
 	.wrapper {
+		display: flex;
 		justify-content: flex-end;
 		padding: 0 20px;
 	}
@@ -207,7 +208,7 @@ header.plain  {
 		display: none;
 	}
 
-	.nav-bar.wrapper {
+	header .nav-bar.wrapper {
 		display: flex;
 
 		& > .logo,

@@ -1,15 +1,10 @@
 .docs-container {
 	> .wrapper {
 		display: flex;
+		flex-wrap: wrap;
 	}
-
-	.docs-nav,
-	.docs-main {
-		padding: 40px 0;
-	}
-
 	.docs-nav {
-		flex: 0 1 230px;
+		flex: 1 1 100%;
 
 		> ul {
 			padding: 20px 0;
@@ -26,6 +21,17 @@
 			max-width: 800px;
 			padding: 0 25px;
 			margin: 20px auto 1.75em auto;
+		}
+	}
+
+	@media (min-width: 800px) {
+		.docs-nav,
+		.docs-main {
+			padding: 40px 0;
+		}
+
+		.docs-nav {
+			flex: 0 1 230px;
 		}
 	}
 
