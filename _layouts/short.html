@@ -8,7 +8,7 @@ header_class: short
 	{% include navigation/top.html %}
 
 	<section>
-		<div class="wrapper">
+		<div class="wrapper {% if page.large_wrapper %}wrapper-large{% endif %}">
 			{% if page.heading %}
 				<h1>{{ page.heading }}</h1>
 			{% elsif page.name %}
