@@ -1,0 +1,17 @@
+---
+title: Search
+layout: page
+sitemap: false
+---
+
+<section class="dark-content">
+	<div class="wrapper wrapper-large">
+		<p><span id="search-process">Loading</span> results <span id="search-query-container" style="display: none;">for "<strong id="search-query"></strong>"</span>:</p>
+		<ul id="search-results"></ul>
+
+		{{ content }}
+
+		<script src="/assets/js/lunr.min.js"></script>
+		<script src="/assets/js/search.js"></script>
+	</div>
+</section>

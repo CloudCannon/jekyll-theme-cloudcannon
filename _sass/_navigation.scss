@@ -171,6 +171,42 @@ header.plain  {
 			}
 		}
 	}
+
+	.search {
+		position: relative;
+		margin-left: 20px;
+
+		svg {
+			position: absolute;
+			left: 12px;
+			top: 11px;
+			pointer-events: none;
+			fill: #fff;
+		}
+
+		input {
+			display: block;
+			border: 0;
+			padding: 11px 8px 11px 36px;
+			width: 250px;
+			border-radius: 2px;
+			background: transparent;
+			color: #fff;
+			font-size: 1rem;
+			border: 1px solid #fff;
+			box-sizing: border-box;
+			transition: width 200ms ease;
+
+			&:not(:focus):invalid {
+				width: 0;
+			}
+		}
+
+		&.light input {
+			border-color: $brand-color;
+			color: $text-colour;
+		}
+	}
 }
 
 #open-nav {
