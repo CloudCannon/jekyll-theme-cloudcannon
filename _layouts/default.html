@@ -30,6 +30,10 @@
 			document.getElementById("open-nav").addEventListener("click", function (event) {
 				event.preventDefault();
 				document.body.classList.toggle("nav-open");
+
+				if (document.body.classList.contains("nav-open")) {
+					document.getElementById("search-input").focus();
+				}
 			});
 		</script>
 	</body>

@@ -149,12 +149,48 @@ header.plain  {
 	}
 
 	.main,
-	.right {
+	.right,
+	.search {
 		display: none;
 		text-align: right;
 
 		a {
 			padding: 20px 0;
+		}
+
+		.nav-open & {
+			display: block;
+		}
+	}
+
+	.search {
+		position: relative;
+		margin: 20px 0 0 auto;
+
+		svg {
+			position: absolute;
+			left: 12px;
+			top: 11px;
+			pointer-events: none;
+			fill: #fff;
+		}
+
+		input {
+			display: block;
+			width: 100%;
+			border: 0;
+			padding: 11px 8px 11px 36px;
+			border-radius: 2px;
+			background: transparent;
+			color: #fff;
+			font-size: 1rem;
+			border: 1px solid #fff;
+			box-sizing: border-box;
+		}
+
+		&.light input {
+			border-color: $brand-color;
+			color: $text-colour;
 		}
 	}
 
@@ -172,39 +208,21 @@ header.plain  {
 		}
 	}
 
-	.search {
-		position: relative;
-		margin-left: 20px;
-
-		svg {
-			position: absolute;
-			left: 12px;
-			top: 11px;
-			pointer-events: none;
-			fill: #fff;
-		}
-
-		input {
-			display: block;
+	@media only screen and (max-width: $desktop-min - 1) {
+		.right .button {
+			background: none;
+			text-align: right;
+			text-transform: none;
+			font-weight: 400;
 			border: 0;
-			padding: 11px 8px 11px 36px;
-			width: 250px;
-			border-radius: 2px;
-			background: transparent;
-			color: #fff;
-			font-size: 1rem;
-			border: 1px solid #fff;
-			box-sizing: border-box;
-			transition: width 200ms ease;
 
-			&:not(:focus):invalid {
-				width: 0;
+			&.dark:hover {
+				color: #fff;
 			}
-		}
 
-		&.light input {
-			border-color: $brand-color;
-			color: $text-colour;
+			&.light:hover {
+				color: $brand-color;
+			}
 		}
 	}
 }
@@ -214,29 +232,6 @@ header.plain  {
 	display: block;
 	float: right;
 	margin-top: 7px;
-}
-
-.nav-open .nav-bar.wrapper .main,
-.nav-open .nav-bar.wrapper .right {
-	display: block;
-}
-
-@media only screen and (max-width: $desktop-min - 1) {
-	.nav-bar.wrapper .right .button {
-		background: none;
-		text-align: right;
-		text-transform: none;
-		font-weight: 400;
-		border: 0;
-
-		&.dark:hover {
-			color: #fff;
-		}
-
-		&.light:hover {
-			color: $brand-color;
-		}
-	}
 }
 
 @media only screen and (min-width: $desktop-min) {
@@ -249,7 +244,8 @@ header.plain  {
 
 		& > .logo,
 		& > .main,
-		& > .right {
+		& > .right,
+		& > .search {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -286,6 +282,19 @@ header.plain  {
 
 			a {
 				opacity: 1;
+			}
+		}
+
+		.search {
+			order: 10;
+			margin: 0 0 0 20px;
+
+			input {
+				transition: width 300ms ease;
+
+				&:not(:focus):invalid {
+					width: 0;
+				}
 			}
 		}
 	}
