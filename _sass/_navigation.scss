@@ -173,19 +173,32 @@ header.plain  {
 			top: 11px;
 			pointer-events: none;
 			fill: #fff;
+			transition: fill 0.2s ease;
 		}
 
 		input {
 			display: block;
 			width: 100%;
 			border: 0;
-			padding: 11px 8px 11px 36px;
+			padding: 11px 8px 11px 41px;
 			border-radius: 2px;
 			background: transparent;
 			color: #fff;
 			font-size: 1rem;
 			border: 1px solid #fff;
 			box-sizing: border-box;
+			transition: background-color 0.2s ease, color 0.2s ease;
+
+			&:hover,
+			&:focus {
+				outline: none;
+				color: $text-colour;
+				background-color: white;
+
+				& + svg {
+					fill: $brand-color;
+				}
+			}
 		}
 
 		&.light input {
@@ -290,10 +303,9 @@ header.plain  {
 			margin: 0 0 0 20px;
 
 			input {
-				transition: width 300ms ease;
-
 				&:not(:focus):invalid {
 					width: 0;
+					padding-left: 36px;
 				}
 			}
 		}
