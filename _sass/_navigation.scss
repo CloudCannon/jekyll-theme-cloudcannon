@@ -166,37 +166,48 @@ header.plain  {
 	.search {
 		position: relative;
 		margin: 20px 0 0 auto;
-
-		svg {
-			position: absolute;
-			left: 12px;
-			top: 11px;
-			pointer-events: none;
-			fill: #fff;
-			transition: fill 0.2s ease;
-		}
+		height: 44px;
+		$width-transition-duration: 500ms;
+		$color-transition-duration: 200ms;
 
 		input {
 			display: block;
 			width: 100%;
 			border: 0;
-			padding: 11px 8px 11px 41px;
+			padding: 11px 8px 11px 38px;
 			border-radius: 2px;
-			background: transparent;
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3e%3c/path%3e%3cpath d='M0 0h24v24H0z' fill='none'%3e%3c/path%3e%3c/svg%3e");
+			background-position: 11px 50%;
+			background-repeat: no-repeat;
+			background-color: transparent;
 			color: #fff;
 			font-size: 1rem;
 			border: 1px solid #fff;
 			box-sizing: border-box;
-			transition: background-color 0.2s ease, color 0.2s ease;
+			transition: width $width-transition-duration ease,
+				background-position $width-transition-duration ease,
+				background-image $color-transition-duration ease $width-transition-duration,
+				background-color $color-transition-duration ease $width-transition-duration;
 
-			&:hover,
-			&:focus {
+			&:hover {
+				opacity: 0.6;
+			}
+
+			&:focus,
+			&:not(:invalid) {
+				transition: width $width-transition-duration ease $color-transition-duration,
+					background-position $width-transition-duration ease $color-transition-duration,
+					background-image $color-transition-duration ease,
+					background-color $color-transition-duration ease;
+
 				outline: none;
+				opacity: 1;
 				color: $text-colour;
 				background-color: white;
+				background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='#{$brand-color}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3e%3c/path%3e%3cpath d='M0 0h24v24H0z' fill='none'%3e%3c/path%3e%3c/svg%3e");
 
-				& + svg {
-					fill: $brand-color;
+				+ .nav-cover {
+					opacity: 1;
 				}
 			}
 		}
@@ -204,6 +215,7 @@ header.plain  {
 		&.light input {
 			border-color: $brand-color;
 			color: $text-colour;
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='#{$brand-color}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3e%3c/path%3e%3cpath d='M0 0h24v24H0z' fill='none'%3e%3c/path%3e%3c/svg%3e");
 		}
 	}
 
@@ -259,10 +271,13 @@ header.plain  {
 		& > .main,
 		& > .right,
 		& > .search {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			text-align: center;
+			.nav-open &,
+			& {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
 		}
 
 		.main {
@@ -292,6 +307,7 @@ header.plain  {
 			letter-spacing: $uppercase-letter-spacing;
 			font-size: $font-smaller;
 			font-weight: 700;
+			margin-right: 65px;
 
 			a {
 				opacity: 1;
@@ -301,11 +317,20 @@ header.plain  {
 		.search {
 			order: 10;
 			margin: 0 0 0 20px;
+			position: absolute;
+			left: 250px;
+			top: 20px;
+			z-index: 10;
+			right: 20px;
 
 			input {
+				position: absolute;
+				right: 0;
+				top: 0;
+				z-index: 10;
+
 				&:not(:focus):invalid {
 					width: 0;
-					padding-left: 36px;
 				}
 			}
 		}
