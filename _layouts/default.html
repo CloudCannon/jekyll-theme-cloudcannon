@@ -23,10 +23,14 @@
 	</head>
 
 	<body>
+
 		{% include navigation/siblings.html %}
 		{{ content }}
 		{% include navigation/footer.html %}
 		<script>
+			var signedIn = /^(.*;)?\s*signed_in\s*=\s*[^;]+(.*)?$/.test(document.cookie);
+			document.body.className += ' ' + (signedIn ? 'user-signed-in' : '');
+			
 			document.getElementById("open-nav").addEventListener("click", function (event) {
 				event.preventDefault();
 				document.body.classList.toggle("nav-open");

@@ -150,3 +150,13 @@ iframe.screenshot {
 		margin-bottom: 0;
 	}
 }
+
+.user-signed-in .hide-on-signed-in,
+.show-on-signed-in {
+	display: none !important;
+}
+
+.hide-on-signed-in,
+.user-signed-in .show-on-signed-in {
+	display: flex !important;
+}
