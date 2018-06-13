@@ -153,10 +153,10 @@ iframe.screenshot {
 
 .user-signed-in .hide-on-signed-in,
 .show-on-signed-in {
-	display: none !important;
+	display: none;
 }
 
 .hide-on-signed-in,
 .user-signed-in .show-on-signed-in {
-	display: flex !important;
+	display: flex;
 }
