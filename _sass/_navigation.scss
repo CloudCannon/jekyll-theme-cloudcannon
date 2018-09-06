@@ -47,22 +47,22 @@ nav.siblings {
 			width: 9999px;
 			background: rgba(0, 0, 0, 0.1);
 			top: 0;
+			border-radius: 0 0 0 4px;
 		}
 
 		&:after {
 			right: 100%;
 			left: auto;
+			border-radius: 0 0 4px 0;
 		}
 	}
 
 	&.light {
-		background: $brand-color;
-
 		a.active,
 		.no-active-replacement {
 			&:before,
 			&:after {
-				display: none;
+				background: $brand-color;
 			}
 		}
 
