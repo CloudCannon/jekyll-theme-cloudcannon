@@ -57,6 +57,13 @@ nav.siblings {
 		}
 	}
 
+	.no-active-replacement {
+		&:before,
+		&:after {
+			border-radius: 0;
+		}
+	}
+
 	&.light {
 		a.active,
 		.no-active-replacement {
