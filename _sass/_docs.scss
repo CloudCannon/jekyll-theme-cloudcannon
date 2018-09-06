@@ -2,6 +2,8 @@
 	> .wrapper {
 		display: flex;
 		flex-wrap: wrap;
+		padding-top:0;
+		padding-bottom: 0;
 	}
 	.docs-nav {
 		flex: 1 1 100%;
