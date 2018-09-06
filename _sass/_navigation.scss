@@ -240,6 +240,18 @@ header.plain  {
 	}
 }
 
+body.minimal-navigation {
+	footer,
+	nav.siblings,
+	nav.search {
+		display: none !important;
+	}
+
+	nav.siblings + header {
+		padding-top: 0;
+	}
+}
+
 #open-nav {
 	text-align: right;
 	display: block;

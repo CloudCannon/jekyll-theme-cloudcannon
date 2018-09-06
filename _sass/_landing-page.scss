@@ -101,6 +101,11 @@ $landing-image-color-dark: rgba(120, 120, 120, 0.5);
 	}
 
 	@media only screen and (min-width: $desktop-min) {
+		.landing-image-aside,
+		.landing-preview {
+			margin: 0 0 0 10%;
+		}
+
 		&:nth-child(even) {
 			.landing-text {
 				order: 2;
@@ -109,6 +114,11 @@ $landing-image-color-dark: rgba(120, 120, 120, 0.5);
 			.landing-image {
 				margin-right: 0;
 				text-align: right;
+			}
+
+			.landing-image-aside,
+			.landing-preview {
+				margin: 0 10% 0 0;
 			}
 		}
 	}
@@ -341,12 +351,11 @@ $landing-image-color-dark: rgba(120, 120, 120, 0.5);
 	}
 }
 
+
 .landing-preview {
 	margin: 20px 0 -60px 0;
 
 	@media only screen and (min-width: $desktop-min) {
-		margin: 0 10% 0 0;
-
 		.laptop > img {
 			left: 14.5%;
 		}

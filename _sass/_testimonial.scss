@@ -4,6 +4,10 @@
 	blockquote {
 		margin: 0;
 		box-shadow: $large-box-shadow;
+
+		+ blockquote {
+			margin-top: 40px;
+		}
 	}
 
 	.author {
