@@ -1,3 +1,4 @@
+$siblings-height: 40px;
 nav.siblings {
 	position: absolute;
 	left: 0;
@@ -7,16 +8,16 @@ nav.siblings {
 
 	.wrapper {
 		display: flex;
-		justify-content: flex-end;
-		padding: 0 20px;
+		justify-content: flex-start;
+		padding: 0 10px;
 	}
 
 	a {
 		display: inline-block;
 		padding: 0 10px;
-		margin-left: 5px;
-		height: 30px;
-		line-height: 30px;
+		margin-right: 5px;
+		height: $siblings-height;
+		line-height: $siblings-height;
 		color: rgba(255, 255, 255, 0.8);
 		font-weight: bold;
 		position: relative;
@@ -77,7 +78,7 @@ nav.siblings {
 	}
 
 	+ header {
-		padding-top: 30px;
+		padding-top: $siblings-height;
 	}
 }
 
@@ -173,48 +174,29 @@ header.plain  {
 			display: block;
 			width: 100%;
 			border: 0;
-			padding: 11px 8px 11px 38px;
-			border-radius: 2px;
-			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='%23ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3e%3c/path%3e%3cpath d='M0 0h24v24H0z' fill='none'%3e%3c/path%3e%3c/svg%3e");
-			background-position: 11px 50%;
+			padding: 5px 5px 5px 30px;
+			border-radius: 4px;
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='#{$brand-color}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3e%3c/path%3e%3cpath d='M0 0h24v24H0z' fill='none'%3e%3c/path%3e%3c/svg%3e");
+			background-position: 5px 50%;
+			background-size: auto 20px;
 			background-repeat: no-repeat;
-			background-color: transparent;
+			background-color: #fff;
+			border: 1px solid $brand-color;
 			color: #fff;
-			font-size: 1rem;
-			border: 1px solid #fff;
+			font-size: 0.9rem;
 			box-sizing: border-box;
-			transition: width $width-transition-duration ease,
-				background-position $width-transition-duration ease,
-				background-image $color-transition-duration ease $width-transition-duration,
-				background-color $color-transition-duration ease $width-transition-duration;
-
-			&:hover {
-				opacity: 0.6;
-			}
 
 			&:focus,
 			&:not(:invalid) {
-				transition: width $width-transition-duration ease $color-transition-duration,
-					background-position $width-transition-duration ease $color-transition-duration,
-					background-image $color-transition-duration ease,
-					background-color $color-transition-duration ease;
-
 				outline: none;
 				opacity: 1;
 				color: $text-colour;
 				background-color: white;
-				background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='#{$brand-color}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3e%3c/path%3e%3cpath d='M0 0h24v24H0z' fill='none'%3e%3c/path%3e%3c/svg%3e");
 
 				+ .nav-cover {
 					opacity: 1;
 				}
 			}
-		}
-
-		&.light input {
-			border-color: $brand-color;
-			color: $text-colour;
-			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='#{$brand-color}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3e%3c/path%3e%3cpath d='M0 0h24v24H0z' fill='none'%3e%3c/path%3e%3c/svg%3e");
 		}
 	}
 
@@ -289,7 +271,6 @@ header.plain  {
 			display: flex;
 		}
 
-
 		.main {
 			margin-top: 0;
 			flex: 1;
@@ -317,7 +298,6 @@ header.plain  {
 			letter-spacing: $uppercase-letter-spacing;
 			font-size: $font-smaller;
 			font-weight: 700;
-			margin-right: 65px;
 
 			a {
 				opacity: 1;
@@ -325,23 +305,20 @@ header.plain  {
 		}
 
 		.search {
-			order: 10;
-			margin: 0 0 0 20px;
+			$search-height: 26px;
+			margin: (($siblings-height - $search-height) / 2) 0 0 20px;
 			position: absolute;
-			left: 250px;
-			top: 20px;
+			right: 0;
+			width: 100%;
+			max-width: 30%;
+			height: $search-height;
+			top: -$siblings-height;
 			z-index: 10;
 			right: 20px;
 
+			form,
 			input {
-				position: absolute;
-				right: 0;
-				top: 0;
-				z-index: 10;
-
-				&:not(:focus):invalid {
-					width: 0;
-				}
+				width: 100%;
 			}
 		}
 	}
