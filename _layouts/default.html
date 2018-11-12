@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" class="app-message-notification-visible">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +23,11 @@
 	</head>
 
 	<body {% if site.body_class %}class="{{ site.body_class }}"{% endif %}>
+		<div class="app-message-notification">
+			<p><a href="https://cloudcannon.com/operations/2018/11/13/scheduled-maintanence/">
+				Scheduled Maintanence today at 5:00pm NZDT
+			</a></p>
+		</div>
 		{% include navigation/siblings.html %}
 		{{ content }}
 		{% include navigation/footer.html %}
