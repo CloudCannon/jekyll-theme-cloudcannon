@@ -1,13 +1,13 @@
-$app-message-notifcation-height: 40px;
+$banner-notifcation-height: 40px;
 
-html.app-message-notification-visible {
-  padding-top: $app-message-notifcation-height;
+html.banner-notification-visible {
+  padding-top: $banner-notifcation-height;
 }
 
-.app-message-notification {
+.banner-notification {
   position: absolute;
-  top: -$app-message-notifcation-height;
-  height: $app-message-notifcation-height;
+  top: -$banner-notifcation-height;
+  height: $banner-notifcation-height;
   text-align: center;
   width: 100%;
   display: flex;
