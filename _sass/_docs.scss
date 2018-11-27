@@ -9,7 +9,7 @@
 		flex: 1 1 100%;
 
 		> ul {
-			padding: 20px 0;
+			padding: 0;
 			margin: 0;
 		}
 	}
@@ -28,11 +28,19 @@
 	@media (min-width: 800px) {
 		.docs-nav,
 		.docs-main {
-			padding: 40px 0;
+			padding: 20px 0;
 		}
 
 		.docs-nav {
+			padding: 40px 0 20px 0;
 			flex: 0 1 230px;
+			align-self: flex-start;
+			position: sticky;
+			top: 0;
+
+			> ul {
+				border-right: 1px solid #eee;
+			}
 		}
 	}
 
@@ -52,6 +60,12 @@
 	line-height: 1;
 	font-size: 1rem;
 	margin: 0;
+	padding: 0;
+
+	> ul {
+		margin: 0;
+		padding: 0;
+	}
 
 	nav:not(.full-navigation) & > ul {
 		display: none;
@@ -62,22 +76,40 @@
 	}
 
 	> a {
-		color: #666;
+		color: $brand-color;
 		text-decoration: none;
-		padding: 10px 0 10px 10px;
+		padding: 5px 10px;
 		display: block;
+		border-left: 5px solid #f8f8f8;
+		margin: 0 0 5px 0;
+
+		&:hover {
+			border-left-color: $brand-color;
+		}
 	}
 
 	&.current > a,
-	> a:active,
-	> a:hover {
+	&.current > a:active,
+	&.current > a:hover {
 		color: #111;
+		border-left-color: #111;
 	}
 
 	&.top-level > a {
 		line-height: 1.5;
-		font-weight: 600;
-		padding-left: 20px;
+		font-weight: bold;
+		padding-left: 0;
+		font-size: 0.9rem;
+		margin: 0;
+		text-transform: uppercase;
+		color: #888;
+		border: 0;
+	}
+
+	&.top-level + .top-level {
+		border-top: 1px solid #eee;
+		padding-top: 10px;
+		margin-top: 10px;
 	}
 }
 

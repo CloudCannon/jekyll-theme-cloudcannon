@@ -111,6 +111,10 @@ input[type="submit"] {
 			background: $brand-color;
 		}
 	}
+
+	&.button-small {
+		padding: 9px ($half-space / 2);
+	}
 }
 
 .toggle-buttons {
