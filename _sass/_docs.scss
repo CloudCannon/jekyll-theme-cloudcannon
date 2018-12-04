@@ -5,10 +5,12 @@
 		padding-top:0;
 		padding-bottom: 0;
 	}
+
 	.docs-nav {
 		flex: 1 1 100%;
+		min-width: 0;
 
-		> ul {
+		.docs-nav-list {
 			padding: 0;
 			margin: 0;
 		}
@@ -17,28 +19,35 @@
 	.docs-main {
 		background: #fff;
 		flex: 3 1 500px;
+		min-width: 0;
 
 		.content {
 			max-width: 800px;
-			margin: 20px auto 1.75em auto;
+			margin: 0 auto 1.75em auto;
 		}
 	}
 
 	@media (min-width: 800px) {
-		.docs-nav,
+		padding: 40px 0;
+
 		.docs-main {
-			padding: 20px;
+			padding: 0 20px;
 		}
 
 		.docs-nav {
-			padding: 40px 0 20px 0;
+			padding: 0;
 			flex: 0 1 230px;
-			align-self: flex-start;
-			position: sticky;
+			position: relative;
 			top: 0;
+			will-change: min-height;
 
-			> ul {
+			.docs-nav-list {
+				box-sizing: border-box;
+				width: 100%;
 				border-right: 1px solid #eee;
+				transform: translate(0, 0); /* For browsers don't support translate3d. */
+				transform: translate3d(0, 0, 0);
+				will-change: position, transform;
 			}
 		}
 	}
@@ -74,7 +83,7 @@
 		display: block;
 	}
 
-	> a {
+	a {
 		color: $brand-color;
 		text-decoration: none;
 		padding: 5px 10px;
