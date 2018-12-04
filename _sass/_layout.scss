@@ -152,11 +152,6 @@ iframe.screenshot {
 }
 
 .user-signed-in .hide-on-signed-in,
-.show-on-signed-in {
-	display: none;
-}
-
-.hide-on-signed-in,
-.user-signed-in .show-on-signed-in {
-	display: flex;
+body:not(.user-signed-in) .show-on-signed-in {
+	display: none !important;
 }

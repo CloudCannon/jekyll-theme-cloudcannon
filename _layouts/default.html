@@ -18,7 +18,19 @@
 		<meta name="theme-color" content="#407afc">
 
 		{% feed_meta %}
-		{% seo %}
+
+		{% assign site_title = site.title | default: site.name %}
+		{% assign title = page.title | append: " | " | append: site_title %}
+		{%- if page.collection -%}
+			{%- assign collection = site.collections | where: "label", page.collection | first -%}
+			{%- if collection -%}
+				{% assign title = collection.title | append: " | " | append: title %}
+			{%- endif -%}
+		{%- endif -%}
+
+		<title>{{ title }}</title>
+
+		{% seo title=false %}
 		{% include analytics.html %}
 	</head>
 
