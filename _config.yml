@@ -19,6 +19,8 @@ lang: en_NZ
 logo: /siteicon.png
 
 plugins:
+  - jekyll-data
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-include-cache

@@ -48,6 +48,7 @@ nav.siblings {
 			background: rgba(0, 0, 0, 0.1);
 			top: 0;
 			border-radius: 0 0 0 4px;
+			pointer-events: none;
 		}
 
 		&:after {
@@ -141,6 +142,31 @@ header.plain  {
 	}
 }
 
+.search-input {
+	display: block;
+	width: 100%;
+	border: 0;
+	padding: 5px 5px 5px 30px;
+	border-radius: 4px;
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='#{encode-color($brand-color)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3e%3c/path%3e%3cpath d='M0 0h24v24H0z' fill='none'%3e%3c/path%3e%3c/svg%3e");
+	background-position: 5px 50%;
+	background-size: auto 20px;
+	background-repeat: no-repeat;
+	background-color: #fff;
+	border: 1px solid $brand-color;
+	color: #fff;
+	font-size: 0.9rem;
+	box-sizing: border-box;
+
+	&:focus,
+	&:not(:invalid) {
+		outline: none;
+		opacity: 1;
+		color: $text-colour;
+		background-color: white;
+	}
+}
+
 .nav-bar.wrapper {
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -177,29 +203,12 @@ header.plain  {
 		$width-transition-duration: 500ms;
 		$color-transition-duration: 200ms;
 
+
 		input {
-			display: block;
-			width: 100%;
-			border: 0;
-			padding: 5px 5px 5px 30px;
-			border-radius: 4px;
-			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='#{$brand-color}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3e%3c/path%3e%3cpath d='M0 0h24v24H0z' fill='none'%3e%3c/path%3e%3c/svg%3e");
-			background-position: 5px 50%;
-			background-size: auto 20px;
-			background-repeat: no-repeat;
-			background-color: #fff;
-			border: 1px solid $brand-color;
-			color: #fff;
-			font-size: 0.9rem;
-			box-sizing: border-box;
+			@extend .search-input;
 
 			&:focus,
 			&:not(:invalid) {
-				outline: none;
-				opacity: 1;
-				color: $text-colour;
-				background-color: white;
-
 				+ .nav-cover {
 					opacity: 1;
 				}

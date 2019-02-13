@@ -56,5 +56,9 @@
 				}
 			});
 		</script>
+
+		{% if page.search_result_highlighting_selector %}
+			{% include_cached search-result-highlighting.html content_selector=page.search_result_highlighting_selector %}
+		{% endif %}
 	</body>
 </html>

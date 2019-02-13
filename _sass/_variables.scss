@@ -80,3 +80,17 @@ $outline-box-shadow: 0 0 1px 1px rgba(0, 20, 180, 0.03);
 		margin: -($section-padding + $half-height) 0 $section-padding 0;
 	}
 }
+
+
+// Helper functions
+
+// Does not work with colors containing alpha
+@function encode-color($string) {
+	@if type-of($string) == 'color' {
+		$hex: str-slice(ie-hex-str($string), 4);
+		$string: unquote("#{$hex}");
+	}
+
+	$string: '%23' + $string;
+	@return $string;
+}

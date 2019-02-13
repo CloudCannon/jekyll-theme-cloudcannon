@@ -1,4 +1,33 @@
 (function () {
+	function debounce(func, wait, immediate) {
+		var timeout;
+
+		return function () {
+			var context = this,
+				args = arguments;
+
+			clearTimeout(timeout);
+
+			timeout = setTimeout(function () {
+				timeout = null;
+				if (!immediate) {
+					func.apply(context, args);
+				}
+			}, wait);
+
+			if (immediate && !timeout) {
+				func.apply(context, args);
+			}
+		};
+	}
+
+	function escapeHtml(html) {
+		var text = document.createTextNode(html);
+		var p = document.createElement("p");
+		p.appendChild(text);
+		return p.innerHTML;
+	}
+
 	function getQueryVariable(variable) {
 		var query = window.location.search.substring(1),
 			vars = query.split("&");
@@ -16,6 +45,7 @@
 		previewLength = previewLength || (content.length * 2);
 
 		var parts = query.split(" "),
+			loweredContent = content.toLowerCase(),
 			match = content.toLowerCase().indexOf(query.toLowerCase()),
 			matchLength = query.length,
 			preview;
@@ -26,7 +56,7 @@
 				break;
 			}
 
-			match = content.toLowerCase().indexOf(parts[i].toLowerCase());
+			match = loweredContent.indexOf(parts[i].toLowerCase());
 			matchLength = parts[i].length;
 		}
 
@@ -57,6 +87,7 @@
 
 	function displaySearchResults(results, query) {
 		var searchResultsEl = document.getElementById("search-results"),
+			searchResultsStatusEl = document.getElementById("search-results-status"),
 			searchProcessEl = document.getElementById("search-process");
 
 		if (results.length) {
@@ -64,42 +95,77 @@
 			results.forEach(function (result) {
 				var item = window.data[result.ref],
 					contentPreview = getPreview(query, item.content, 170),
+					urlPreview = getPreview(query, item.url),
 					titlePreview = getPreview(query, item.title);
 
-				resultsHTML += "<li><h4><a href='" + item.url.trim() + "'>" + titlePreview + "</a></h4><p><small>" + contentPreview + "</small></p></li>";
+				resultsHTML +=
+					"<li>" +
+						"<h4 class='search-result-title'><a href='" + item.url.trim() + "?h=" + encodeURIComponent(query).replace(/'/g, "%27") + "'>" + titlePreview + "</a></h4>" +
+						"<p class='search-result-url'>" + urlPreview + "</p>" +
+						"<p class='search-result-snippet'>" + contentPreview + "</p>" +
+					"</li>";
 			});
 
+			searchResultsStatusEl.innerHTML = results.length + " result" + (results.length === 1 ? "" : "s") + " for <strong>" + escapeHtml(query) + "</strong>";
 			searchResultsEl.innerHTML = resultsHTML;
-			searchProcessEl.innerText = "Showing";
 		} else {
-			searchResultsEl.style.display = "none";
-			searchProcessEl.innerText = "No";
+			searchResultsStatusEl.innerHTML = "No results" + (query ? " for <strong>" + escapeHtml(query) + "</strong>" : "");
+			searchResultsEl.innerHTML = "";
 		}
+	}
+
+	function runSearch(query) {
+		if (!query) {
+			return displaySearchResults([], query);
+		}
+
+		var searchResultsStatusEl = document.getElementById("search-results-status");
+		searchResultsStatusEl.innerHTML = "Loading results for <strong>" + escapeHtml(query) + "</strong>...";
+
+		var sanitised = query.replace(/(^ +| +$|\*)/g, "").replace(/ +/g, " ");
+		if (!sanitised) {
+			return displaySearchResults([], sanitised);
+		}
+
+		var parts = sanitised.split(" "),
+			wildcardQueries = [];
+
+		for (var i = 0; i < parts.length; i++) {
+			wildcardQueries.push(parts[i] + " " + parts[i] + "*");
+		}
+
+		displaySearchResults(window.index.search(wildcardQueries.join(" ")), sanitised);
 	}
 
 	window.index = lunr(function () {
 		this.field("id");
-		this.field("title", {boost: 10});
-		this.field("categories");
+		this.field("title", {boost: 2});
 		this.field("url");
 		this.field("content");
+
+		for (var key in window.data) {
+			this.add(window.data[key], {
+				boost: window.data[key].boost || 1
+			});
+		}
 	});
 
 	var query = decodeURIComponent((getQueryVariable("q") || "").replace(/\+/g, "%20")),
-		searchQueryContainerEl = document.getElementById("search-query-container"),
-		searchQueryEl = document.getElementById("search-query"),
-		searchInput = document.getElementById("search-input");
+		searchInputEls = document.getElementsByClassName("search-input");
 
-	searchQueryEl.innerText = query;
-	searchQueryContainerEl.style.display = "inline";
-
-	if (searchInput) {
-		searchInput.value = query;
+	for (var i = 0; i < searchInputEls.length; i++) {
+		searchInputEls[i].value = query;
 	}
 
-	for (var key in window.data) {
-		window.index.add(window.data[key]);
+	if (searchInputEls.length) {
+		searchInputEls[searchInputEls.length - 1].focus();
+		searchInputEls[searchInputEls.length - 1].select();
 	}
 
-	displaySearchResults(window.index.search(query), query); // Hand the results off to be displayed
+	runSearch(query);
+
+	var contentSearchInputEl = document.getElementById("content-search-input");
+	contentSearchInputEl.addEventListener("input", debounce(function () {
+		runSearch(contentSearchInputEl.value);
+	}, 300));
 })();
