@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" {% if site.data.banner_notification.enabled %}class="banner-notification-visible"{% endif %}>
 	<head>
 		<meta charset="utf-8">
@@ -34,7 +33,11 @@
 		{% include analytics.html %}
 	</head>
 
-	<body {% if site.body_class %}class="{{ site.body_class }}"{% endif %}>
+	{% assign body_class = site.body_class %}
+	{% if layout.body_class %}
+		{% assign body_class = body_class | append: " " | append: layout.body_class %}
+	{% endif %}
+	<body {% if body_class %}class="{{ body_class }}"{% endif %}>
 		{% if site.data.banner_notification.enabled %}
 			<div class="banner-notification">
 				<p><a href="{{ site.data.banner_notification.url }}">{{ site.data.banner_notification.text }}</a></p>

@@ -275,6 +275,7 @@ body.minimal-navigation {
 
 	header .nav-bar.wrapper {
 		display: flex;
+		height: 85px;
 
 		& > .logo,
 		& > .main,
@@ -287,6 +288,14 @@ body.minimal-navigation {
 				align-items: center;
 				justify-content: center;
 				text-align: center;
+			}
+		}
+
+		& > .right {
+			.nav-open &,
+			& {
+				flex: 0 0 190px;
+				justify-content: flex-end;
 			}
 		}
 
