@@ -22,7 +22,7 @@
 		{% assign title = page.title | append: " | " | append: site_title %}
 		{%- if page.collection -%}
 			{%- assign collection = site.collections | where: "label", page.collection | first -%}
-			{%- if collection -%}
+			{%- if collection and collection.title -%}
 				{% assign title = collection.title | append: " | " | append: title %}
 			{%- endif -%}
 		{%- endif -%}
