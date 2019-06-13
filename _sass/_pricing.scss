@@ -3,10 +3,6 @@
 	text-align: center;
 }
 
-.price .annually {
-	display: none;
-}
-
 .plans {
 	display: flex;
 	flex-wrap: wrap;
@@ -63,11 +59,20 @@
 		}
 
 		.price {
+			display: flex;
+			flex-flow: column wrap;
 			margin: 0;
 			color: $brand-color;
 			text-align: center;
 			font-size: 1.8rem;
 			font-weight: 700;
+
+			.monthly {
+				margin-bottom: 15px;
+				min-height: 0.9rem;
+				font-size: 0.8rem;
+				line-height: 0.9rem;
+			}
 		}
 
 		.plan-cta {
@@ -77,6 +82,7 @@
 			right: $plan-space;
 
 			.button {
+				padding: 18px 5px;
 				width: 100%;
 				box-sizing: border-box;
 				white-space: nowrap;
