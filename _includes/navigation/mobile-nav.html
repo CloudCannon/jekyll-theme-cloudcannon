@@ -36,6 +36,8 @@
 
 
 <script>
+	var signedIn = /^(.*;)?\s*signed_in\s*=\s*[^;]+(.*)?$/.test(document.cookie);
+	document.body.className += ' ' + (signedIn ? 'user-signed-in' : '');
 	document.getElementById("search-button").addEventListener("click", function (event) {
 		event.preventDefault();
 		document.getElementById("search-input").classList.toggle("open");
