@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "jekyll", "~> 3.6"
   spec.add_runtime_dependency "jekyll-data", "~> 1.0"
-  spec.add_runtime_dependency "jekyll-feed", "0.9.2"
+  spec.add_runtime_dependency "jekyll-feed", "> 0.9.2"
   spec.add_runtime_dependency "jekyll-seo-tag", "2.3.0"
   spec.add_runtime_dependency "jekyll-sitemap", "1.1.1"
   spec.add_runtime_dependency "jekyll-include-cache", "0.1.0"
