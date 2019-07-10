@@ -1,0 +1,27 @@
+navigation_groups:
+  - title: App
+    order_number: 1
+    navigation_items:
+      - title: Sign Up
+        url: "https://app.cloudcannon.com/users/sign_up/"
+      - title: Log In
+        url: "https://app.cloudcannon.com/"
+  - title: Resources
+    order_number: 2
+    navigation_items:
+      - title: About
+        url: "https://cloudcannon.com/about/"
+      - title: Contact
+        url: "https://cloudcannon.com/contact/"
+      - title: Guides
+        url: "https://learn.cloudcannon.com/"
+      - title: Documentation
+        url: "https://docs.cloudcannon.com/"
+      - title: Experts
+        url: "https://cloudcannon.com/experts/"
+      - title: Brand
+        url: "https://brand.cloudcannon.com/"
+      - title: Status
+        url: "https://status.cloudcannon.com/"
+      - title: Careers
+        url: "https://cloudcannon.com/careers/"

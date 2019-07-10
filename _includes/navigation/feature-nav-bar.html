@@ -1,0 +1,32 @@
+{% assign sorted_features = site.features | sort: "order" %}
+{% assign current_feature = site.features | where: "title", page.title | first %}
+
+<div class="{% unless current_feature %}none {% endunless %}doc-nav">
+    <div class="wrapper wrapper-large" style="padding: 0 10px;">
+        <ul class="doc-nav-sections">
+            {% for feature in sorted_features %}
+                    <li {%if feature == current_feature %}id="make-visible" {% endif %}class="doc-nav-section">
+                        <a href="{{feature.url}}" class="doc-nav-section-link {%if feature == current_feature %}current{% endif %}">
+                            <div class="split-choice-icon">
+                                {% include components/features-nav-icon.html icon=feature.icon %}
+                            </div>
+                            <strong>{{feature.short_name}}</strong>
+                        </a>
+                    </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% unless current_feature %}
+        <div class="doc-nav-sections-empty-fix"></div>
+    {% endunless %}
+</div>
+
+<script>
+(function () {
+    var elmnt = document.getElementById("make-visible");
+    elmnt.scrollIntoView(true);
+    if (screen.width < 800) { 
+        elmnt.scrollIntoView({inline: "center"});
+    }
+})();
+</script>
