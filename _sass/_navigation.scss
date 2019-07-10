@@ -301,11 +301,11 @@ body.minimal-navigation {
 		}
 
 		body:not(.user-signed-in) & > .right.show-on-signed-in,
-		.user-signed-in & > .right.hide-on-signed-in {
+		.user-signed-in & > .app-options.hide-on-signed-in {
 			display: none;
 		}
 
-		body:not(.user-signed-in) & > .right.hide-on-signed-in,
+		body:not(.user-signed-in) & > .app-options.hide-on-signed-in,
 		.user-signed-in & > .right.show-on-signed-in {
 			display: flex;
 		}
