@@ -17,6 +17,24 @@
 			{% endfor %}
 		</ul>
 	</div>
+	<div class="nav-group">
+		<div class="group-heading">
+			<h4>App</h4>
+		</div>
+		<ul class="app-options hide-on-signed-in">
+			<li>
+				<a href="https://app.cloudcannon.com/" target="_blank">Log In</a>
+			</li>
+			<li>
+				<a href="https://app.cloudcannon.com/users/sign_up" target="_blank" class="button keep-text-size {% if page.header_class == 'plain' or layout.header_class == 'plain' %}light{% else %}dark{% endif %}">Sign Up</a>
+			</li>
+		</ul>
+		<ul class="app-options show-on-signed-in">
+			<li>
+				<a href="https://app.cloudcannon.com/editor" target="_blank" class="button keep-text-size {% if page.header_class == 'plain' or layout.header_class == 'plain' %}light{% else %}dark{% endif %}">Go to App</a>
+			</li>
+		</ul>
+	</div>
 	{% for group in navigation_groups %}
 		<div class="nav-group">
 			<div class="group-heading">
