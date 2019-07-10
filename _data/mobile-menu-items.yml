@@ -1,11 +1,4 @@
 navigation_groups:
-  - title: App
-    order_number: 1
-    navigation_items:
-      - title: Sign Up
-        url: "https://app.cloudcannon.com/users/sign_up/"
-      - title: Log In
-        url: "https://app.cloudcannon.com/"
   - title: Resources
     order_number: 2
     navigation_items:
