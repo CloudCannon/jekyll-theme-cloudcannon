@@ -18,6 +18,10 @@
 		<script src="/assets/js/bodyScrollLock.js"></script>
 
 		{% feed_meta %}
+		
+		{% if jekyll.environment != "production" %}
+		    <meta name="robots" content="noindex">
+		{% endif %}
 
 		{% assign site_title = site.title | default: site.name %}
 		{% assign title = page.title | append: " | " | append: site_title %}
