@@ -348,17 +348,11 @@ body.minimal-navigation {
 			margin: (($siblings-height - $search-height) / 2) 0 0 20px;
 			position: absolute;
 			right: 0;
-			width: 100%;
 			max-width: 30%;
 			height: $search-height;
 			top: -$siblings-height;
 			z-index: 10;
-			right: 20px;
 
-			form,
-			input {
-				width: 100%;
-			}
 		}
 	}
 
