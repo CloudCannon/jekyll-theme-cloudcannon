@@ -399,6 +399,10 @@ body.minimal-navigation {
 	padding-right: 15px;
 	box-sizing: border-box;
 
+	.mobile-menu-button svg {
+		fill: #eeeeee;
+	}
+
 
 	.search-button, .mobile-menu-button {
 		position: relative;
@@ -411,6 +415,12 @@ body.minimal-navigation {
 	.mobile-menu-button {
 		display: flex;
 		cursor: pointer;
+	}
+}
+
+.mobile-nav.light {
+	.mobile-menu-button svg {
+		fill: #407afc;
 	}
 }
 
@@ -495,7 +505,29 @@ body.minimal-navigation {
 	}
 }
 
+.mobile-menu.light {
+	background: #fff linear-gradient(45deg, rgba(0, 0, 0, 0), #fff);
+	color: #595959;
 
+	.nav-group {
+
+		.group-heading {
+			box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.04);
+		}
+
+		li {
+			border-top: 1px solid rgba(157, 157, 157, 0.15);
+
+			a {
+				color: #595959;
+			}
+
+			a:hover {
+				color: #407afc;
+			}
+		}
+	}
+}
 
 .header-search {
 	margin-right: 15px;
@@ -538,7 +570,7 @@ body.minimal-navigation {
 
 	.mobile-nav input#search-input {
 		margin-right: 15px;
-		margin: -5px 0px 5px 10px;
+		margin: -5px 25px 5px 10px;
 		opacity: 0;
 		transition: all ease .2s;
 	}

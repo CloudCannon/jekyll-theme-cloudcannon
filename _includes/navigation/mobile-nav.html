@@ -1,15 +1,18 @@
 <nav class="mobile-nav {% if page.header_class == 'plain' or layout.header_class == 'plain' %}light{% else %}dark{% endif %}">
 	<form action="{{ site.baseurl }}/search/" method="get" class="header-search">
-		<input type="search" name="q" id="search-input" required data-autofocus placeholder="Search {{ site.url | replace_first: 'https://', '' }}" class="search-input">
+		<input type="search" name="q" id="search-input" required placeholder="Search {{ site.url | replace_first: 'https://', '' }}" class="search-input">
 		<input type="submit" value="Search" style="display: none;">
 	</form>
 	<div id="search-button" class="search-button">{% include svgs/search.svg %}</div>
 	<div id="mobile-menu-button" class="mobile-menu-button">{% include svgs/other-icon.html icon="menu" %}</div>
 </nav>
-<div id="mobile-menu" class="mobile-menu">
-	{% assign navigation_groups = site.data.mobile-menu-items.navigation_groups %}
+<div id="mobile-menu" class="mobile-menu {% if page.header_class == 'plain' or layout.header_class == 'plain' %}light{% else %}dark{% endif %}">
+	{% assign navigation_groups = site.data.navigation.mobile-menu-items.navigation_groups %}
 	<div class="nav-group">
 		<ul>
+			<li>
+				<a class="home-url" href="https://cloudcannon.com">Home</a>
+			</li>
 			{% for item in site.data.navigation.main %}
 				<li {% if page.url == item.link %}class="active"{% endif %}>
 					<a href="{{ item.link}}">{{ item.name }}</a>
@@ -59,6 +62,7 @@
 	document.getElementById("search-button").addEventListener("click", function (event) {
 		event.preventDefault();
 		document.getElementById("search-input").classList.toggle("open");
+		document.getElementById("search-input").focus();
 	});
 
 	document.getElementById("mobile-menu-button").addEventListener("click", function (event) {
