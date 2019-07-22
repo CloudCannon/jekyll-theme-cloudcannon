@@ -70,7 +70,8 @@ $nav-bar-background: mix($white, $black, 99%);
 					line-height: 1rem;
 
 					@media (max-width: 800px) {
-					    padding: 10px 0 10px 0;
+						margin: 0px 2px 0px 2px;
+						padding: 8px 4px 8px 4px;
 					    border-radius: 10px;
 					}
 
