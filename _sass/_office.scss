@@ -117,16 +117,29 @@ h2.doc-main-header {
 	li.nav-item.current {
 		.toc {
 			li {
-				margin: 0 1rem 2px 1rem;
 				list-style: none;
-				font-size: 14px;
 				line-height: 1.8em;
 
 				a {
 					padding: 0 10px;
-					margin: 0 0 5px 0;
 				}
 			}
+		}
+	}
+}
+
+.toc {
+	line-height: 1.6em;
+	ul {
+		margin: 0px;
+	}
+	
+	.toc {
+		margin: 0 1rem 2px 1rem;
+
+		li {
+			font-size: 14px;
+			line-height: 1.8em;
 		}
 	}
 }
