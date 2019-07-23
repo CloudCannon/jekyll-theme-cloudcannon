@@ -17,7 +17,7 @@
 		}
 	}
 
-	@media (max-width: 800px) {
+	@media (max-width: 810px) {
 		.docs-nav.full-navigation {
 			display: none;
 		}
@@ -28,17 +28,17 @@
 		flex: 3 1 500px;
 		min-width: 0;
 
-		@media (max-width: 800px) {
+		@media (max-width: 810px) {
 			padding-top: 50px;
 		}
 
 		.content {
-			max-width: 800px;
+			max-width: 810px;
 			margin: 0 auto 1.75em auto;
 		}
 	}
 
-	@media (min-width: 800px) {
+	@media (min-width: 810px) {
 		
 
 		.docs-main {
@@ -129,6 +129,14 @@
 		border-top: 1px solid #eee;
 		padding-top: 10px;
 		margin-top: 10px;
+	}
+}
+
+li.nav-item.standalone.current {
+	.toc {
+		li:first-child {
+			margin: 0px;
+		}
 	}
 }
 

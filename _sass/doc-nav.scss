@@ -29,12 +29,12 @@ $nav-bar-background: mix($white, $black, 99%);
 			width: 100%;
 			background: $docs-nav-background;
 
-			@media (max-width: 800px) {
+			@media (max-width: 810px) {
 				background: transparent;
 			}
 		}
 
-		@media (max-width: 800px) {
+		@media (max-width: 810px) {
 	        overflow-x: auto;
 	        box-shadow: 0px 0px 0px transparent;
 	        background-color: #e6e5e6;
@@ -69,7 +69,7 @@ $nav-bar-background: mix($white, $black, 99%);
 					font-size: 0.9rem;
 					line-height: 1rem;
 
-					@media (max-width: 800px) {
+					@media (max-width: 810px) {
 						margin: 0px 2px 0px 2px;
 						padding: 8px 4px 8px 4px;
 					    border-radius: 10px;
@@ -109,7 +109,7 @@ $nav-bar-background: mix($white, $black, 99%);
 							bottom: -10px;
 							border-radius: 0 0 0 $docs-nav-bottom-curve-size;
 
-							@media (max-width: 800px) {
+							@media (max-width: 810px) {
 								background: rgba(0, 0, 0, 0.1);;
 								border-radius: 0;
 								height: 0px;
@@ -121,7 +121,7 @@ $nav-bar-background: mix($white, $black, 99%);
 							left: auto;
 							border-radius: 0 0 $docs-nav-bottom-curve-size 0;
 
-							@media (max-width: 800px) {
+							@media (max-width: 810px) {
 								background: rgba(0, 0, 0, 0.1);
 								border-radius: 0;
 								height: 0px;
@@ -236,7 +236,7 @@ body.fixed-position:after {
 		border-bottom: 1px solid #d7d7d7;
 		font-weight: bold;
 
-		@media (max-width: 800px) {
+		@media (max-width: 810px) {
 			display: block;
 		}
 
@@ -253,8 +253,8 @@ body.fixed-position:after {
 
 			.arrow {
 				padding-right: 2px;
-				padding-bottom: 2px;
-				transform: rotate(270deg);
+				padding-left: 4px;
+				transform: rotate(90deg);
 				text-align: center;
 				font-size: 1.2rem;
 			}
@@ -263,10 +263,10 @@ body.fixed-position:after {
 }
 
 body.fixed-position .path-wrapper .path a .arrow {
-	padding-right: 2px;
-	padding-left: 2px;
-	padding-bottom: 2px;
-	transform: rotate(90deg);
+	margin-top: -2px;
+	padding-left: 0px;
+	padding-right: 4px;
+	transform: rotate(270deg);
 }
 
 /* Safari Mobile Fix */

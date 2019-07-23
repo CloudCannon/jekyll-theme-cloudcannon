@@ -36,6 +36,10 @@
 
                     {% assign sorted_sections = site.sections | sort: "order" %}
                     {% for section in sorted_sections %}
+                        {% comment %}
+                            For CloudCannon Suite 'Packages'
+                        {% endcomment %}
+                        {% assign package = site.collections | where: "title", section.name | first %}
                         {% unless next_section %}
                             {% if page.url contains section.url %}
                                 {% assign current_section = section %}
@@ -55,7 +59,7 @@
                                 {% else %}
                                     <i class="material-icons">{{ section.icon }}</i>
                                 {% endif %}
-                                <strong>{{ section.short_name }}</strong>
+                                <strong>{% if section.short_name %}{{ section.short_name }}{% else %}{{ section.title }}{% endif %}</strong>
                             </a>
                         </li>
                     {% endfor %}
