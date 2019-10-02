@@ -35,6 +35,20 @@
 		.content {
 			max-width: 810px;
 			margin: 0 auto 1.75em auto;
+
+			p {
+				img {
+					height: auto;
+					max-width: 105%;
+					max-height: 60vh;
+					margin: 10% 0;
+					position: relative;
+					left: 50%;
+					-webkit-transform: translateX(-50%);
+					transform: translateX(-50%);
+					width: auto;
+				}
+			}
 		}
 	}
 
