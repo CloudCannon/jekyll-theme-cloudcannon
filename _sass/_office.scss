@@ -98,18 +98,18 @@
 	}
 }
 
-.doc .content {
-	blockquote {
-		padding-left: 25px;
-		border-left: 4px solid
-		#959595;
-		background: rgba(164, 164, 164, 0.1);
 
-		p {
-			margin-bottom: 10px;
-		}
+blockquote {
+	padding-left: 25px;
+	border-left: 4px solid
+	#959595;
+	background: rgba(164, 164, 164, 0.1);
+
+	p {
+		margin-bottom: 10px;
 	}
 }
+
 
 .doc-category-header {
 	font-size: 0.9rem;
