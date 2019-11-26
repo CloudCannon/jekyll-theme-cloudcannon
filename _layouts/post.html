@@ -7,8 +7,16 @@ icons: true
 	<div class="wrapper">
 		<p class="post-date">{{ page.date | date: "%d %b %Y" }}</p>
 		<h1>{{ page.title }}</h1>
+		{% assign author = null %}
+		{% for staff in site.staff_members %}
+			{% assign staff_name = staff.title | slugify %}
+			{% if staff_name == page.staff_member %}
+				{% assign author = staff %}
 
-		{% assign author = site.data.authors[page.author] %}
+			{% else %}
+			{% endif %}
+		{% endfor %}
+
 		{% assign show_details = false %}
 		{% if author %}
 			{% assign show_details = true %}
@@ -20,15 +28,15 @@ icons: true
 		{% endif %}
 
 		{% if show_details %}
-		<div class="post-details">
-			{% if author %}
-				<img src="{{ author.image }}" alt="A stunning photo of {{ author.name }}" width="200" height="200">
-				<span class="name">{{ author.name }}</span>
-			{% endif %}
-			{% for category in page.categories %}
-				<span class="category-separator">&bull;</span> <span class="category">{{ category }}</span>
-			{% endfor %}
-		</div>
+			<div class="post-details">
+				{% if author %}
+					<img src="{{ author.image }}" alt="A stunning photo of {{ author.name }}" width="200" height="200">
+					<span class="name">{{ author.name }}</span>
+				{% endif %}
+				{% for category in page.categories %}
+					<span class="category-separator">&bull;</span> <span class="category">{{ category }}</span>
+				{% endfor %}
+			</div>
 		{% endif %}
 
 		<div class="post-content">
