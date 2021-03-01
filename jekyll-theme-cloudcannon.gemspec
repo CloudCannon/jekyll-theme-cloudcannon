@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-cloudcannon"
-  spec.version       = "0.1.3"
+  spec.version       = "0.1.4"
   spec.authors       = ["CloudCannon"]
   spec.email         = ["george@cloudcannon.com"]
 
@@ -16,7 +16,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "jekyll", "~> 4.1.1"
   spec.add_runtime_dependency "jekyll-data", "~> 1.1.0"
-  spec.add_runtime_dependency "jekyll-feed", "~> 0.15.0"
   spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.6.1"
   spec.add_runtime_dependency "jekyll-sitemap", "~> 1.4.0"
   spec.add_runtime_dependency "jekyll-include-cache", "~> 0.2.0"
